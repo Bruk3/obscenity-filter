@@ -4,7 +4,9 @@
   "description": "An obscenity filter library with multiple language support",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "./node_modules/.bin/eslint test/*.js src/*.js data/*.json",
+    "lint-fix": "./node_modules/.bin/eslint test/*.js src/*.js data/*.json --fix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/Bruk3/obscenity-filter/issues"
   },
-  "homepage": "https://github.com/Bruk3/obscenity-filter#readme"
+  "homepage": "https://github.com/Bruk3/obscenity-filter#readme",
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
 }
