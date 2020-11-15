@@ -8,6 +8,7 @@ A javascript library that detects obscene Amharic words and phrases.
 ![GitHub](https://img.shields.io/github/license/bruk3/obscenity-filter)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/bruk3/obscenity-filter/CI/main)
 ![nycrc config on GitHub](https://img.shields.io/nycrc/bruk3/obscenity-filter?config=.nycrc.json)
+![Read the Docs](https://img.shields.io/readthedocs/j-parser)
 
 
 ---
