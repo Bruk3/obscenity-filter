@@ -115,7 +115,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'j-parserdoc'
+htmlhelp_basename = 'obscenity-filterdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -142,7 +142,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'j-parser.tex', u'j-parser Documentation',
+    (master_doc, 'obscenity-filter.tex', u'obscenity-filter Documentation',
      u'Bruk Zewdie', 'manual'),
 ]
 
@@ -152,7 +152,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'j-parser', u'j-parser Documentation',
+    (master_doc, 'obscenity-filter', u'obscenity-filter Documentation',
      [author], 1)
 ]
 
@@ -163,8 +163,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'j-parser', u'j-parser Documentation',
-     author, 'j-parser', 'One line description of project.',
+    (master_doc, 'obscenity-filter', u'obscenity-filter Documentation',
+     author, 'obscenity-filter', 'One line description of project.',
      'Miscellaneous'),
 ]
 
