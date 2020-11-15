@@ -4,11 +4,11 @@ const { describe, it } = require('mocha');
 const { getLabels, isPure } = require('../src/index');
 
 const BAD_WORDS = [
-   ብድ
+  'ብድ',
 ];
 
 const GOOD_WORDS = [
-  ብድሬን
+  'ብድሬን',
 ];
 
 describe('wordCheck', () => {
@@ -63,8 +63,7 @@ describe('wordCheck', () => {
 describe('wordCheck', () => {
   describe('getLabels', () => {
     it('should return a list of the matching labels', () => {
-        assert.deepEqual(getLabels(BAD_WORDS[0]), ['PN']);
-      }
+      assert.deepEqual(getLabels(BAD_WORDS[0]), ['PN']);
     });
   });
 });
