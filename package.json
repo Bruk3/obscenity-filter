@@ -1,0 +1,19 @@
+{
+  "name": "obscenity-filter",
+  "version": "1.0.0",
+  "description": "An obscenity filter library with multiple language support",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bruk3/obscenity-filter.git"
+  },
+  "author": "Bruk B Zewdie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bruk3/obscenity-filter/issues"
+  },
+  "homepage": "https://github.com/Bruk3/obscenity-filter#readme"
+}
