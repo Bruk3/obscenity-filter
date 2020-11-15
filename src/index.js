@@ -1,8 +1,7 @@
 const badWords = require('../data/amharic.json').words;
-const { allLabels } = require('../data/amharic.json');
 
 function isPure(word) {
-  return word in badWords;
+  return !(word in badWords);
 }
 
 function getLabels(word) {
