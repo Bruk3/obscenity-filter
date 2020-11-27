@@ -1,6 +1,6 @@
 {
   "name": "obscenity-filter",
-  "version": "1.0.0",
+  "version": "v0.1.0",
   "description": "An obscenity filter library with multiple language support",
   "main": "index.js",
   "scripts": {
