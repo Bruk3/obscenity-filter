@@ -1,9 +1,23 @@
 const badWords = require('../data/amharic.json').words;
 
+/**
+ * checks if a word is obscene.
+ * returns true if the word is not obscene
+ *
+ * @param {string} word
+ * @returns {boolean}
+ */
 function isPure(word) {
   return !(word in badWords);
 }
 
+/**
+ * returns the categorizing labels for a given obscene word
+ * returns an empty array if isPure(word) == true
+ *
+ * @param {string} word
+ * @returns {array}
+ */
 function getLabels(word) {
   let labels = [];
 

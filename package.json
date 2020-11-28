@@ -7,7 +7,8 @@
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint test/*.js src/*.js",
     "lint-fix": "./node_modules/.bin/eslint test/*.js src/*.js --fix",
-    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test",
+    "build-doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,12 @@
   },
   "homepage": "https://github.com/Bruk3/obscenity-filter#readme",
   "devDependencies": {
+    "docdash": "^1.2.0",
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "jsdoc": "^3.6.6",
+    "minami": "^1.2.3",
     "nyc": "^15.1.0",
     "prettier": "^2.1.2"
   },
