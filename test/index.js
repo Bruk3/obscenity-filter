@@ -2,7 +2,7 @@ const { assert } = require('chai');
 const { describe, it } = require('mocha');
 
 const {
-  containsObsceneWord, getLabels, isPure, removeObscenity,
+  containsObsceneWord, getLabels, isPure, rmObscenity,
 } = require('../src/index');
 
 const BAD_WORDS = [
@@ -110,41 +110,41 @@ describe('phraseCheck', () => {
 });
 
 describe('filterWords', () => {
-  describe('removeObscenity', () => {
+  describe('rmObscenity', () => {
     it('should not remove anything except whitespaces for phrases with no obscenity', () => {
       for (let i = 0; i < GOOD_PHRASES.length; i += 1) {
         const phrase = GOOD_PHRASES[i];
         const trimmedWords = phrase.trim().split(/\s+/);
-        assert.equal(removeObscenity(phrase), trimmedWords.join(' '));
+        assert.equal(rmObscenity(phrase), trimmedWords.join(' '));
       }
     });
   });
 });
 
 describe('filterWords', () => {
-  describe('removeObscenity', () => {
+  describe('rmObscenity', () => {
     it('should remove all obscene words from string', () => {
       const rawPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ ብዳታም እያሉ ይሳደባሉ';
       const cleanedPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ **** እያሉ ይሳደባሉ';
-      assert.equal(removeObscenity(rawPhrase), cleanedPhrase);
+      assert.equal(rmObscenity(rawPhrase), cleanedPhrase);
     });
   });
 });
 
 describe('filterWords', () => {
-  describe('removeObscenity', () => {
+  describe('rmObscenity', () => {
     it('should return non-obscene words only from array', () => {
       const rawPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ ብዳታም እያሉ ይሳደባሉ';
       const cleanedPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ እያሉ ይሳደባሉ';
-      assert.deepEqual(removeObscenity(rawPhrase.split(/\s+/)), cleanedPhrase.split(/\s+/));
+      assert.deepEqual(rmObscenity(rawPhrase.split(/\s+/)), cleanedPhrase.split(/\s+/));
     });
   });
 });
 
 describe('filterWords', () => {
-  describe('removeObscenity', () => {
+  describe('rmObscenity', () => {
     it('throws TypeError for arguments of neither string nor array', () => {
-      assert.throws(() => removeObscenity({ key: 'value' }), TypeError);
+      assert.throws(() => rmObscenity({ key: 'value' }), TypeError);
     });
   });
 });

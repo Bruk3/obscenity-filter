@@ -1,8 +1,8 @@
 const badWords = require('../data/amharic.json').words;
 
 /**
- * checks if a word is obscene.
- * returns true if the word is not obscene
+ * Checks if a word is obscene.
+ * Returns true if the word is not obscene
  *
  * @param {string} word
  * @returns {boolean}
@@ -12,8 +12,8 @@ function isPure(word) {
 }
 
 /**
- * returns the categorizing labels for a given obscene word
- * returns an empty array if isPure(word) == true
+ * Returns the categorizing labels for a given obscene word.
+ * Returns an empty array if isPure(word) == true.
  *
  * @param {string} word
  * @returns {array}
@@ -27,6 +27,13 @@ function getLabels(word) {
   return labels;
 }
 
+/**
+ * Checks if a phrase/sentence contains any obscene word.
+ * Splits the string by whitespace before checking each word for obscenity.
+ *
+ * @param {string} phrase
+ * @return {boolean}
+*/
 function containsObsceneWord(phrase) {
   const words = phrase.trim().split(/\s+/);
 
@@ -39,7 +46,14 @@ function containsObsceneWord(phrase) {
   return false;
 }
 
-function removeObscenityFromString(phrase) {
+/**
+ * Scrubs all obscene words and replaces them with asterisk characters.
+ *
+ * @param {string} phrase
+ * @return {string}
+ */
+
+function rmObscenityFromString(phrase) {
   const words = phrase.trim().split(/\s+/);
 
   const filtered = [];
@@ -53,8 +67,14 @@ function removeObscenityFromString(phrase) {
 
   return filtered.join(' ');
 }
+/**
+ * Returns an array of all non-obscene words. Order of input is maintained.
+ *
+ * @param {array} words
+ * @return {array}
+ */
 
-function removeObscenityFromArray(words) {
+function rmObscenityFromArray(words) {
   const filtered = [];
   for (let i = 0; i < words.length; i += 1) {
     if (isPure(words[i])) {
@@ -64,13 +84,13 @@ function removeObscenityFromArray(words) {
   return filtered;
 }
 
-function removeObscenity(words) {
+function rmObscenity(words) {
   if (typeof (words) === 'string') {
-    return removeObscenityFromString(words);
+    return rmObscenityFromString(words);
   }
 
   if (Array.isArray(words)) {
-    return removeObscenityFromArray(words);
+    return rmObscenityFromArray(words);
   }
 
   throw new TypeError();
@@ -80,5 +100,5 @@ module.exports = {
   containsObsceneWord,
   getLabels,
   isPure,
-  removeObscenity,
+  rmObscenity,
 };
