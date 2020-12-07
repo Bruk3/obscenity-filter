@@ -22,7 +22,7 @@ A variety of public facing social websites process input texts from users in ord
 ```js
 const filter = require('obscenity-filter');
 
-console.log(filter.isPure('hello')); //Don't be an ******
+console.log(filter.isPure('hello')); // false 
 console.log(filter.isPure('ብድሬን')); // false
 console.log(filter.isPure('ብድ'));  // true
 ```
