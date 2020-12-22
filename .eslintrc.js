@@ -11,5 +11,8 @@ module.exports = {
     ecmaVersion: 12,
   },
   rules: {
+    quotes: ['error', 'single', {
+      allowTemplateLiterals: true,
+    }],
   },
 };
