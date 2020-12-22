@@ -2,7 +2,8 @@
     "labels": {
         "PN": "pornographic",
         "RT": "racist",
-        "IN": "insulting" 
+        "IN": "insulting",
+        "NO": "NONE"
     },
     "words": {
         "ደደብ":  ["IN"],
@@ -24,6 +25,8 @@
         "ጀላው": ["PN"],
         "ቂንጥር": ["PN"],
         "ቂንጥሬን": ["PN"],
-        "ቂንጥፘን": ["PN"]
+        "ቂንጥፘን": ["PN"], 
+        "ጲላ": ["IN", "RT"],
+        "ጋላ": ["IN", "RT"]
     }
 }
