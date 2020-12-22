@@ -55,5 +55,7 @@ filter.addWords(['OTHER_BAD_WORD'], []) // Uses the label NO (NONE) as the defau
 
 ### Remove words from the set of obscenity words
 ```js
-const wordsToRemove = ['ቅምጥ', 'ግማታም'];
-filter.removeWords(toRemove);
+filter.isPure('ቅምጥ') // false
+filter.removeWords(['ቅምጥ']);
+filter.isPure('ቅምጥ') // true
+```
