@@ -35,9 +35,6 @@ class Filter {
    */
 
   addWord(word, labels) {
-    if (word.length <= 1) {
-      return;
-    }
     if (!labels || labels.length === 0) {
       this.obscenitySet[word] = ['NO'];
     } else {
