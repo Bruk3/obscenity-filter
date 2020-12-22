@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#containsObsceneWord">containsObsceneWord</a></li><li><a href="global.html#getLabels">getLabels</a></li><li><a href="global.html#isPure">isPure</a></li><li><a href="global.html#rmObscenityFromArray">rmObscenityFromArray</a></li><li><a href="global.html#rmObscenityFromString">rmObscenityFromString</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Filter.html">Filter</a><ul class='methods'><li data-type='method'><a href="Filter.html#addWord">addWord</a></li><li data-type='method'><a href="Filter.html#addWords">addWords</a></li><li data-type='method'><a href="Filter.html#containsObscenity">containsObscenity</a></li><li data-type='method'><a href="Filter.html#getLabels">getLabels</a></li><li data-type='method'><a href="Filter.html#isPure">isPure</a></li><li data-type='method'><a href="Filter.html#removeWord">removeWord</a></li><li data-type='method'><a href="Filter.html#removeWords">removeWords</a></li><li data-type='method'><a href="Filter.html#scrub">scrub</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -60,35 +60,43 @@
         <article><h1>obscenity-filter</h1>
 <h4>What is it?</h4>
 <p>A javascript library that detects obscene Amharic words and phrases.</p>
-<h3>An obscenity filter library for the amharic langauge.</h3>
+<h3>An obscenity filter library for the Amharic langauge.</h3>
 <p><img src="https://img.shields.io/github/license/bruk3/obscenity-filter" alt="GitHub">
 <img src="https://img.shields.io/github/workflow/status/bruk3/obscenity-filter/CI/main" alt="GitHub Workflow Status (branch)">
 <img src="https://img.shields.io/nycrc/bruk3/obscenity-filter?config=.nycrc.json" alt="nycrc config on GitHub">
 <img src="https://img.shields.io/readthedocs/j-parser" alt="Read the Docs"></p>
 <hr>
-<p>A variety of public facing social websites process input texts from users in order to display it in public. These websites usually utilize a profanity filtering service in order to avoid exposing the public from extremely obscene phrases . Unfortunately, most of the filtering packages only have support for a few languages. <a href="https://en.wikipedia.org/wiki/Amharic">Amharic</a>, the official language of Ethiopia with more than 20 million speakers worldwide, has not been one of the supported languages. At least not until <code>obscenity-filter</code>.</p>
+<p>A variety of public facing social websites process input texts from users in order to display it in public. These websites usually:w
+utilize a profanity filtering service in order to avoid exposing the public from extremely obscene phrases. Unfortunately, most of the filtering packages only have support for a few languages. <a href="https://en.wikipedia.org/wiki/Amharic">Amharic</a>, the official language of Ethiopia with more than 20 million speakers worldwide, has not been one of the supported languages. At least not until <a href="https://bruk3.github.io/obscenity-filter">obscenity-filter</a>.</p>
 <h2>Usage</h2>
 <h3>Check if an Amharic word is obscene or not</h3>
-<pre class="prettyprint source lang-js"><code>const filter = require('obscenity-filter');
+<pre class="prettyprint source lang-js"><code>const OFilter = require('obscenity-filter');
+const filter = new OFilter(true)
 
-console.log(filter.isPure('hello')); //Don't be an ******
-console.log(filter.isPure('ብድሬን')); // false
-console.log(filter.isPure('ብድ'));  // true
+console.log(filter.isPure('hello')); // true 
+console.log(filter.isPure('ብድሬን')); // true
+console.log(filter.isPure('ብድ'));  // false
 </code></pre>
 <h3>Scrub all obscene words and replace them with asterisk characters.</h3>
-<pre class="prettyprint source lang-js"><code>
-const rawPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ ብዳታም እያሉ ይሳደባሉ';
+<pre class="prettyprint source lang-js"><code>const rawPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ ብዳታም እያሉ ይሳደባሉ';
 const cleanedPhrase = 'አንዳንድ ሰዎች በማህበራዊ ገጽ ላይ እየገቡ **** እያሉ ይሳደባሉ';
 
-filter.rmObscenity(rawPhrase); // returns cleanedPhrase
+filter.scrub(rawPhrase); // returns cleanedPhrase
 </code></pre>
-<h3>Get the label for an obscene word</h3>
+<h3>Get the labels for an obscene word</h3>
 <pre class="prettyprint source lang-js"><code>
-filter.getLabels('ልብዳቹ'); // retuns [PN, IN] [pornographic, insuting]
+filter.getLabels('ልብዳቹ'); // returns [PN, IN] [pornographic, insulting]
 </code></pre>
-<h3>Returns an array of all non-obscene words. Order of input is maintained.</h3>
-<pre class="prettyprint source lang-js"><code>filter.rmObscenityFromArray(['አንዳንድ', 'ማህበራዊ', 'ብዳታም', 'ገጽ']) // ['አንዳንድ', 'ማህበራዊ', 'ገጽ']
-</code></pre></article>
+<h3>Add new words to the set of obscenity words</h3>
+<pre class="prettyprint source lang-js"><code>const newBadWords = ['ግማታም', 'ጥንባታም'];
+filter.addWords(newBadWords, [['IN'], ['IN']]);
+
+filter.addWords(['OTHER_BAD_WORD'], []) // Uses the label NO (NONE) as the default label.
+
+</code></pre>
+<h3>Remove words from the set of obscenity words</h3>
+<pre class="prettyprint source lang-js"><code>const wordsToRemove = ['ቅምጥ', 'ግማታም'];
+filter.removeWords(toRemove);</code></pre></article>
     </section>
 
 
@@ -103,7 +111,7 @@ filter.getLabels('ልብዳቹ'); // retuns [PN, IN] [pornographic, insuting]
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Dec 06 2020 17:03:41 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Tue Dec 22 2020 17:03:45 GMT-0500 (Eastern Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
